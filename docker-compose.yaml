@@ -2,8 +2,6 @@
 
 version: '2'
 
-network:
-
 services:
   pool_node1:
     build: ./pool_nodes
