@@ -1,0 +1,25 @@
+---
+
+version: '2'
+
+network:
+
+services:
+  pool_node1:
+    build: ./pool_nodes
+    container_name: pool_node1
+    hostname: pool_node1
+  pool_node2:
+    build: ./pool_nodes
+    container_name: pool_node2
+    hostname: pool_node2
+  loadbalancer:
+    build: ./loadbalancer
+    container_name: loadbalancer
+    ports:
+    - 80:80
+    links:
+    - pool_node1
+    - pool_node2
+
+...
